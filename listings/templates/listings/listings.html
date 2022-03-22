@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<h1>Listings</h1>
-<p>Annonces</p>
+<h1>Annonces</h1>
+
 <ul>
     {% for title in title %}
-        <li>{{ title.name }}</li>
+        <li><a href="{% url 'listings-detail' title.id %}">{{ title.name }}</a></li>
     {% endfor %}
 </ul>
 
