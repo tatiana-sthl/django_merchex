@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 from listings import models
 from listings.models import Band, Title
 from django.http import Http404
-from listings.forms import ContactUsForm, BandForm
+from listings.forms import ContactUsForm, BandForm, TitleForm
 from django.core.mail import send_mail
 
 def band_list(request):
@@ -36,6 +36,16 @@ def listings(request):
 def listings_detail(request, id):
     title = Title.objects.get(id=id)
     return render(request, "listings/listings_detail.html", {'title': title})
+
+def listings_create(request): 
+    if request.method == "POST":
+        form = TitleForm(request.POST)
+        if form.is_valid():
+            title = form.save()
+            return redirect("listings-detail", title.id)
+    else:
+        form = TitleForm()
+    return render(request, "listings/listings_create.html", {"form": form})
 
 def contact(request):
 

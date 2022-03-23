@@ -4,6 +4,8 @@
 
 <h1>Annonces</h1>
 
+<a href="{% url 'listings-create' %}">Créer une nouvelle annonce</a>
+
 <ul>
     {% for title in title %}
         <li><a href="{% url 'listings-detail' title.id %}">{{ title.name }}</a></li>
