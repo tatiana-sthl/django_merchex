@@ -22,9 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bands/<int:id>/', views.band_detail, name="band-detail"),
     path('bands/', views.band_list, name='band-list'),
-    path('about/', views.about),
-    path('listings/', views.listings),
-    path('listings/<int:id>/', views.listings_detail, name="listings-detail"),
+    path('about/', views.about, name="about"),
     path('listings/', views.listings, name='title-list'),
+    path('listings/<int:id>/', views.listings_detail, name="listings-detail"),
     path('contact/', views.contact, name="contact"),
+    path('email_sent/',views.email_sent, name="email-sent"),
 ]

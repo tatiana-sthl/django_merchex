@@ -8,7 +8,6 @@ from django.http import Http404
 from listings.forms import ContactUsForm
 from django.core.mail import send_mail
 
-
 def band_list(request):
     bands = Band.objects.all()
     return render(request, "listings/band_list.html", context={"bands" : bands})
@@ -44,3 +43,6 @@ def contact(request):
         form = ContactUsForm()
 
     return render(request, "listings/contact.html", {"form": form})
+
+def email_sent(request):
+    return render(request, "listings/email_sent.html")
