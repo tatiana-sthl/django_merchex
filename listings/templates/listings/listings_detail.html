@@ -12,9 +12,11 @@
     <li>Band : {{ title.band }}</li>
 </ul>
 
-<a href="{% url 'title-list' %}">Retour à toutes les annonces</a>
+<a href="{% url 'listings-list' %}">Retour à toutes les annonces</a>
 
 <a href="{% url 'listings-change' title.id %}">Modifier cette annonce</a>
+
+<a href="{% url 'listings-delete' title.id %}">Supprimer cette annonce</a>
 
 
 {% endblock content %}
